@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ChatButton = () => {
+const ChatButton = ({ setShowLa }) => {
   const [show, setShow] = React.useState(true)
   const [show2, setShow2] = React.useState(true)
 
@@ -19,20 +19,25 @@ const ChatButton = () => {
     setShow2(false)
   }
 
+  const handleClose = () => {
+    setShowLa(false)
+  }
+
   return (
     <>
       {show2 && (
         <div className="relative">
           <img
-            className="h-24 transition duration-400  cursor-pointer shadow-2xl shadow-blue-500 block w-24 border-4 m-2 border-green-600 object-cover rounded-full hover:ring-4 hover:opacity-95    hover:ring-emerald-500"
+            className="block object-cover w-24 h-24 m-2 transition border-4 border-green-600 rounded-full shadow-2xl cursor-pointer duration-400 shadow-blue-500 hover:ring-4 hover:opacity-95 hover:ring-emerald-500"
             src="https://sprcdn-assets.sprinklr.com/124/8e030a8c-2638-4580-9d25-6dcca1790fe4-731817086.png"
             alt="avatar"
+            onClick={() => handleClose()}
           />
 
           <div className="absolute top-0 right-0 -translate-x-3 -translate-y-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 block text-blue-200 hover:text-yellow-300 cursor-pointer transition duration-300 hover:scale-125"
+              className="block w-5 h-5 text-blue-200 transition duration-300 cursor-pointer hover:text-yellow-300 hover:scale-125"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -51,14 +56,14 @@ const ChatButton = () => {
 
       {show && (
         <>
-          <div className="absolute top-0 left-0 -translate-x-24 mr-4 mx-auto translate-y-7  ">
-            <p className="text-xs font-medium py-2 px-4  rounded-md bg-slate-100">
+          <div className="absolute top-0 left-0 mx-auto mr-4 -translate-x-24 translate-y-7 ">
+            <p className="px-4 py-2 text-xs font-medium rounded-md bg-slate-100">
               Need help? Talk to ChatBot!
             </p>
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 absolute bottom-0 left-0 -translate-x-5 -translate-y-5 block text-gray-800 hover:text-blue-600 cursor-pointer transition duration-300 hover:scale-125"
+            className="absolute bottom-0 left-0 block w-5 h-5 text-gray-800 transition duration-300 -translate-x-5 -translate-y-5 cursor-pointer hover:text-blue-600 hover:scale-125"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
